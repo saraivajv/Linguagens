@@ -1,0 +1,31 @@
+funcao quicksort(lista: list): list
+inicio
+    se tamanho(lista) <= 1 entao
+    inicio
+        retorne lista
+    fim
+    senao
+    inicio
+        var pivo: int = lista[0]
+        var menores: list = []
+        var maiores: list = []
+
+        var i: int = 1
+        enquanto i < tamanho(lista) faca
+        inicio
+            se lista[i] <= pivo entao
+            inicio
+                menores = concatena(menores, [lista[i]])
+            fim
+            senao
+            inicio
+                maiores = concatena(maiores, [lista[i]])
+            fim
+            
+            i = i + 1
+        fim
+
+        retorne concatena(quicksort(menores), concatena([pivo], quicksort(maiores)))
+    fim
+fim
+

@@ -1,0 +1,26 @@
+inicio
+    var n : int = 0
+    var c1 : int = 0  // [0,25]
+    var c2 : int = 0  // [26,50]
+    var c3 : int = 0  // [51,75]
+    var c4 : int = 0  // [76,100]
+
+    enquanto n >= 0 faca
+        leia(n)
+        
+        se n >= 0 e n <= 25 entao
+            c1 = c1 + 1
+        senao se n >= 26 e n <= 50 entao
+            c2 = c2 + 1
+        senao se n >= 51 e n <= 75 entao
+            c3 = c3 + 1
+        senao se n >= 76 e n <= 100 entao
+            c4 = c4 + 1
+        fim
+    fim
+
+    escreva(c1)
+    escreva(c2)
+    escreva(c3)
+    escreva(c4)
+fim

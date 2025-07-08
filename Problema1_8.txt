@@ -1,0 +1,9 @@
+inicio
+    var x : float = 3.5
+    var y : float = 1.2
+    var c : int = 4
+
+    var resultado : float = (x * x) - y + c
+
+    escreva(resultado)
+fim

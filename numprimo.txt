@@ -1,0 +1,31 @@
+funcao ehPrimo(n: int): bool
+inicio
+    se n <= 1 entao
+    inicio
+        retorne falso
+    fim
+
+    var i: int = 2
+    enquanto i < n faca
+    inicio
+        se (n / i) * i == n entao
+        inicio
+            retorne falso
+        fim
+        
+        i = i + 1
+    fim
+
+    retorne verdadeiro
+fim
+
+inicio
+    var num1: int = 7
+    var num2: int = 10
+    
+    escreva(ehPrimo(num1)) 
+    escreva(ehPrimo(num2)) 
+    escreva(ehPrimo(2))  
+    escreva(ehPrimo(1))  
+fim
+

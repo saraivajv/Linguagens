@@ -1,0 +1,78 @@
+funcao cria_racional(a: int, b: int): list
+inicio
+    se b == 0 entao
+        escreva("Erro: denominador não pode ser zero")
+        retorne [0, 1]
+    fim
+    retorne [a, b]
+fim
+
+funcao iguais(r1: list, r2: list): bool
+inicio
+    retorne (r1[0] * r2[1]) == (r2[0] * r1[1])
+fim
+
+funcao soma_racional(r1: list, r2: list): list
+inicio
+    var num : int = r1[0]*r2[1] + r2[0]*r1[1]
+    var den : int = r1[1] * r2[1]
+    retorne [num, den]
+fim
+
+funcao negacao_racional(r: list): list
+inicio
+    retorne [-r[0], r[1]]
+fim
+
+funcao subtrai_racional(r1: list, r2: list): list
+inicio
+    var neg : list = negacao_racional(r2)
+    retorne soma_racional(r1, neg)
+fim
+
+funcao multiplica_racional(r1: list, r2: list): list
+inicio
+    retorne [r1[0]*r2[0], r1[1]*r2[1]]
+fim
+
+funcao inverso_racional(r: list): list
+inicio
+    se r[0] == 0 entao
+        escreva("Erro: não existe inverso de zero")
+        retorne [0, 1]
+    fim
+    retorne [r[1], r[0]]
+fim
+
+funcao divide_racional(r1: list, r2: list): list
+inicio
+    var inv : list = inverso_racional(r2)
+    retorne multiplica_racional(r1, inv)
+fim
+
+// Programa principal
+inicio
+    var r1 : list = cria_racional(1, 2)
+    var r2 : list = cria_racional(2, 4)
+
+    escreva("r1: ", r1[0], "/", r1[1])
+    escreva("r2: ", r2[0], "/", r2[1])
+
+    se iguais(r1, r2) entao
+        escreva("r1 e r2 são iguais")
+    senao
+        escreva("r1 e r2 são diferentes")
+    fim
+
+    var soma : list = soma_racional(r1, r2)
+    escreva("Soma: ", soma[0], "/", soma[1])
+
+    var sub : list = subtrai_racional(r1, r2)
+    escreva("Subtração: ", sub[0], "/", sub[1])
+
+    var mult : list = multiplica_racional(r1, r2)
+    escreva("Multiplicação: ", mult[0], "/", mult[1])
+
+    var div : list = divide_racional(r1, r2)
+    escreva("Divisão: ", div[0], "/", div[1])
+fim
