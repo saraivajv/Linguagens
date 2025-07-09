@@ -1,59 +1,70 @@
-// Definição do tipo nó
+// Implementação de uma Árvore Binária de Busca (ABB)
+
 funcao criar_no(valor: int): list
 inicio
-    retorne [valor, [], []]  // [chave, esquerda, direita]
+    retorne [valor, [], []]  // [chave, sub-árvore esquerda, sub-árvore direita]
 fim
 
-// Inserção na árvore binária de busca
 funcao inserir(arvore: list, valor: int): list
 inicio
     se tamanho(arvore) == 0 entao
+    inicio
         retorne criar_no(valor)
     fim
 
     se valor < arvore[0] entao
+    inicio
         arvore[1] = inserir(arvore[1], valor)
+    fim
     senao
+    inicio
         arvore[2] = inserir(arvore[2], valor)
     fim
     retorne arvore
 fim
 
-// Busca da chave mínima com nível
 funcao minimo(arvore: list, nivel: int): list
 inicio
     se tamanho(arvore[1]) == 0 entao
+    inicio
         retorne [arvore[0], nivel]
+    fim
     senao
+    inicio
         retorne minimo(arvore[1], nivel + 1)
     fim
 fim
 
-// Busca da chave máxima com nível
 funcao maximo(arvore: list, nivel: int): list
 inicio
     se tamanho(arvore[2]) == 0 entao
+    inicio
         retorne [arvore[0], nivel]
+    fim
     senao
+    inicio
         retorne maximo(arvore[2], nivel + 1)
     fim
 fim
 
-// Impressão nível a nível (BFS simples com fila de listas)
-funcao imprimir_niveis(arvore: list)
+funcao imprimir_niveis(arvore: list): int // Funções sem retorno explícito podem ser int
 inicio
     var fila : list = [arvore]
     enquanto tamanho(fila) > 0 faca
+    inicio // <-- CORREÇÃO
         var atual : list = fila[0]
         escreva(atual[0], " ")
         fila = sublista(fila, 1, tamanho(fila) - 1)
         se tamanho(atual[1]) > 0 entao
+        inicio // <-- CORREÇÃO
             fila = concatena(fila, [atual[1]])
         fim
         se tamanho(atual[2]) > 0 entao
+        inicio // <-- CORREÇÃO
             fila = concatena(fila, [atual[2]])
         fim
     fim
+    retorne 0
 fim
 
 // Função principal
@@ -63,6 +74,7 @@ inicio
 
     var i : int = 0
     enquanto i < tamanho(valores) faca
+    inicio // <-- CORREÇÃO
         arvore = inserir(arvore, valores[i])
         i = i + 1
     fim

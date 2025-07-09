@@ -1,9 +1,12 @@
+// Simula um tipo de dado para números racionais usando listas.
+
 funcao cria_racional(a: int, b: int): list
 inicio
     se b == 0 entao
+    inicio // <-- CORREÇÃO
         escreva("Erro: denominador não pode ser zero")
         retorne [0, 1]
-    fim
+    fim // <-- CORREÇÃO
     retorne [a, b]
 fim
 
@@ -38,9 +41,10 @@ fim
 funcao inverso_racional(r: list): list
 inicio
     se r[0] == 0 entao
+    inicio // <-- CORREÇÃO
         escreva("Erro: não existe inverso de zero")
         retorne [0, 1]
-    fim
+    fim // <-- CORREÇÃO
     retorne [r[1], r[0]]
 fim
 
@@ -59,10 +63,13 @@ inicio
     escreva("r2: ", r2[0], "/", r2[1])
 
     se iguais(r1, r2) entao
+    inicio // <-- CORREÇÃO
         escreva("r1 e r2 são iguais")
+    fim // <-- CORREÇÃO
     senao
+    inicio // <-- CORREÇÃO
         escreva("r1 e r2 são diferentes")
-    fim
+    fim // <-- CORREÇÃO
 
     var soma : list = soma_racional(r1, r2)
     escreva("Soma: ", soma[0], "/", soma[1])

@@ -15,7 +15,7 @@ inicio
             c1 = c1 + 1
         fim
         senao
-        inicio
+        inicio 
             se n >= 26 e n <= 50 entao
             inicio
                 c2 = c2 + 1
@@ -32,6 +32,7 @@ inicio
                     inicio
                         c4 = c4 + 1
                     fim
+                    // Não há 'senao' final para números fora de todos os intervalos.
                 fim
             fim
         fim

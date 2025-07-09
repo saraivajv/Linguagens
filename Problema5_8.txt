@@ -1,27 +1,28 @@
-funcao mdc(n: int, m: int, r: int): void
+// Calcula o MDC de dois números usando o algoritmo de Euclides.
+
+funcao mdc(n: int, m: int): int // MUDANÇA: A função deve retornar o resultado.
 inicio
-    se m % n == 0 entao
-        r = n
+    // Simulação do operador módulo (resto da divisão)
+    // Se (dividendo / divisor) * divisor == dividendo, então o resto é 0.
+    var resto_m_n: int = m - (m / n) * n
+    
+    se resto_m_n == 0 entao
+    inicio
+        retorne n
+    fim
     senao
-        se n % m == 0 entao
-            r = m
-        senao
-            se m > n entao
-                mdc(n, m % n, r)
-            senao
-                mdc(m, n % m, r)
-            fim
-        fim
+    inicio
+        retorne mdc(n, resto_m_n)
     fim
 fim
 
 // Programa principal
 inicio
-    var a : int = 24
-    var b : int = 36
+    var a : int = 48
+    var b : int = 18
     var resultado : int = 0
 
-    mdc(a, b, resultado)
+    resultado = mdc(a, b)
 
-    escreva("O MDC de ", a, " e ", b, " é ", resultado)
+    escreva("O MDC de ", a, " e ", b, " é ", resultado) // Deve ser 6
 fim
