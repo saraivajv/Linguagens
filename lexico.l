@@ -65,10 +65,10 @@ comentario_bloco \/\*([^*]|\*+[^*/])*\*+\/
 "="                     { return TK_ATRIBUICAO; }
 "=="                    { return TK_OP_IGUAL; }
 "!="                    { return TK_OP_DIFERENTE; }
-"<"                     { return TK_OP_MENOR; }
-">"                     { return TK_OP_MAIOR; }
 "<="                    { return TK_OP_MENOR_IGUAL; }
 ">="                    { return TK_OP_MAIOR_IGUAL; }
+"<"                     { return TK_OP_MENOR; }
+">"                     { return TK_OP_MAIOR; }
 
 .                       { fprintf(stderr, "Erro Léxico na linha %d: Caractere inválido '%s'\n", yylineno, yytext); }
 

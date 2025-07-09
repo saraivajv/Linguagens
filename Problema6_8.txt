@@ -1,0 +1,77 @@
+// Definição do tipo nó
+funcao criar_no(valor: int): list
+inicio
+    retorne [valor, [], []]  // [chave, esquerda, direita]
+fim
+
+// Inserção na árvore binária de busca
+funcao inserir(arvore: list, valor: int): list
+inicio
+    se tamanho(arvore) == 0 entao
+        retorne criar_no(valor)
+    fim
+
+    se valor < arvore[0] entao
+        arvore[1] = inserir(arvore[1], valor)
+    senao
+        arvore[2] = inserir(arvore[2], valor)
+    fim
+    retorne arvore
+fim
+
+// Busca da chave mínima com nível
+funcao minimo(arvore: list, nivel: int): list
+inicio
+    se tamanho(arvore[1]) == 0 entao
+        retorne [arvore[0], nivel]
+    senao
+        retorne minimo(arvore[1], nivel + 1)
+    fim
+fim
+
+// Busca da chave máxima com nível
+funcao maximo(arvore: list, nivel: int): list
+inicio
+    se tamanho(arvore[2]) == 0 entao
+        retorne [arvore[0], nivel]
+    senao
+        retorne maximo(arvore[2], nivel + 1)
+    fim
+fim
+
+// Impressão nível a nível (BFS simples com fila de listas)
+funcao imprimir_niveis(arvore: list)
+inicio
+    var fila : list = [arvore]
+    enquanto tamanho(fila) > 0 faca
+        var atual : list = fila[0]
+        escreva(atual[0], " ")
+        fila = sublista(fila, 1, tamanho(fila) - 1)
+        se tamanho(atual[1]) > 0 entao
+            fila = concatena(fila, [atual[1]])
+        fim
+        se tamanho(atual[2]) > 0 entao
+            fila = concatena(fila, [atual[2]])
+        fim
+    fim
+fim
+
+// Função principal
+inicio
+    var arvore : list = []
+    var valores : list = [50, 30, 70, 20, 40, 60, 80]
+
+    var i : int = 0
+    enquanto i < tamanho(valores) faca
+        arvore = inserir(arvore, valores[i])
+        i = i + 1
+    fim
+
+    var min : list = minimo(arvore, 0)
+    var max : list = maximo(arvore, 0)
+
+    escreva("Chave mínima: ", min[0], ", nível: ", min[1])
+    escreva("Chave máxima: ", max[0], ", nível: ", max[1])
+    escreva("Árvore nível a nível:")
+    imprimir_niveis(arvore)
+fim

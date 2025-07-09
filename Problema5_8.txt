@@ -1,0 +1,27 @@
+funcao mdc(n: int, m: int, r: int): void
+inicio
+    se m % n == 0 entao
+        r = n
+    senao
+        se n % m == 0 entao
+            r = m
+        senao
+            se m > n entao
+                mdc(n, m % n, r)
+            senao
+                mdc(m, n % m, r)
+            fim
+        fim
+    fim
+fim
+
+// Programa principal
+inicio
+    var a : int = 24
+    var b : int = 36
+    var resultado : int = 0
+
+    mdc(a, b, resultado)
+
+    escreva("O MDC de ", a, " e ", b, " é ", resultado)
+fim

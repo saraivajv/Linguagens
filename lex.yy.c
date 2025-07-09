@@ -363,10 +363,10 @@ struct yy_trans_info
 static const flex_int16_t yy_accept[150] =
     {   0,
         0,    0,   52,   50,    1,    2,   50,   50,   34,   35,
-       41,   39,   36,   40,   42,   30,   33,   46,   43,   47,
+       41,   39,   36,   40,   42,   30,   33,   48,   43,   49,
        32,   37,   38,   32,   32,   27,   32,   32,   32,   32,
        32,   32,   32,   32,    1,   45,    0,   31,    0,    0,
-        3,    0,   30,   48,   44,   49,   32,   32,   32,   32,
+        3,    0,   30,   46,   44,   47,   32,   32,   32,   32,
        32,   32,   32,   32,   32,   32,   32,   32,   28,   32,
        12,   32,   32,   32,   32,   32,    0,    0,    3,   29,
        32,   32,   32,   32,   32,   32,   32,   18,   32,   32,
@@ -1046,22 +1046,22 @@ YY_RULE_SETUP
 case 46:
 YY_RULE_SETUP
 #line 68 "lexico.l"
-{ return TK_OP_MENOR; }
+{ return TK_OP_MENOR_IGUAL; }
 	YY_BREAK
 case 47:
 YY_RULE_SETUP
 #line 69 "lexico.l"
-{ return TK_OP_MAIOR; }
+{ return TK_OP_MAIOR_IGUAL; }
 	YY_BREAK
 case 48:
 YY_RULE_SETUP
 #line 70 "lexico.l"
-{ return TK_OP_MENOR_IGUAL; }
+{ return TK_OP_MENOR; }
 	YY_BREAK
 case 49:
 YY_RULE_SETUP
 #line 71 "lexico.l"
-{ return TK_OP_MAIOR_IGUAL; }
+{ return TK_OP_MAIOR; }
 	YY_BREAK
 case 50:
 YY_RULE_SETUP
