@@ -1,3 +1,4 @@
+// Ficheiro: symbol_table_scoped.h (Versão Corrigida e Final)
 
 #ifndef SYMBOL_TABLE_SCOPED_H
 #define SYMBOL_TABLE_SCOPED_H
@@ -19,16 +20,22 @@ typedef struct Symbol {
     struct Symbol *next;
 } Symbol;
 
+/**
+ * CORREÇÃO: A struct Scope agora tem campos para formar uma árvore de escopos.
+ */
 typedef struct Scope {
+    int id;
     Symbol *symbols;
     struct Scope *parent;
+    struct Scope *children;
+    struct Scope *next_sibling;
 } Scope;
+
 
 void pushScope();
 void popScope();
 bool insertSymbol(const char *name, VarType type);
 Symbol* lookupSymbol(const char *name);
-VarType getSymbolType(const char *name);
 void clearSymbolTable();
 void printSymbolTable();
 
